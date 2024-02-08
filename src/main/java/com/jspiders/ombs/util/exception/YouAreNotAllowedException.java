@@ -1,10 +1,10 @@
 package com.jspiders.ombs.util.exception;
 
-public class UserNotFoundByIdException extends RuntimeException {
+public class YouAreNotAllowedException extends RuntimeException {
 
 	private String message;
 
-	public UserNotFoundByIdException(String message) {
+	public YouAreNotAllowedException(String message) {
 		super();
 		this.message = message;
 	}
