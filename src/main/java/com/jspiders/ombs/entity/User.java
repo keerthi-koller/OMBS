@@ -14,6 +14,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +27,6 @@ public class User {
 	private int userId;
 	private String firstName;
 	private String lastName;
-	private String userRole;
 	private String userEmail;
 	private String userPassword;
 	@CreatedDate
@@ -37,6 +37,16 @@ public class User {
 	private LocalDateTime lastUpdatedDate;
 	@LastModifiedBy
 	private String lastUpdatedBy;
+	@ManyToOne
+	private User_Role user_Role;
+
+	public User_Role getUser_Role() {
+		return user_Role;
+	}
+
+	public void setUser_Role(User_Role user_Role) {
+		this.user_Role = user_Role;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -108,14 +118,6 @@ public class User {
 
 	public void setUserLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getUserRole() {
-		return userRole;
-	}
-
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
 	}
 
 	public String getUserEmail() {

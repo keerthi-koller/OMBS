@@ -6,20 +6,19 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import com.jspiders.ombs.entity.User_Role;
+
 public class UserResponseDTO {
 
 	private int userId;
 	private String userFirstName;
 	private String userLastName;
-	private String userRole;
+	private User_Role userRole;
 	private String userEmail;
 	private LocalDateTime createdDate;
 	private String createdBy;
 	private LocalDateTime lastUpdatedDate;
 	private String lastUpdatedBy;
-
-	
-	
 
 	public LocalDateTime getCreatedDate() {
 		return createdDate;
@@ -77,11 +76,11 @@ public class UserResponseDTO {
 		this.userLastName = userLastName;
 	}
 
-	public String getUserRole() {
+	public User_Role getUserRole() {
 		return userRole;
 	}
 
-	public void setUserRole(String userRole) {
+	public void setUserRole(User_Role userRole) {
 		this.userRole = userRole;
 	}
 

@@ -47,5 +47,27 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 
 		return new ResponseEntity<>(error, HttpStatus.ALREADY_REPORTED);
 	}
+	
+	@ExceptionHandler
+	public ResponseEntity<ErrorStructure> userNotFoundByEmailException(UserNotFoundByEmailException ex)
+	{
+		ErrorStructure error = new ErrorStructure();
+		error.setMessage(ex.getMessage());
+		error.setRootCause("User not found by this mail id");
+		error.setStatusCode(HttpStatus.NOT_FOUND.value());
+
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public ResponseEntity<ErrorStructure> wrongPasswordException (WrongPasswordException ex)
+	{
+		ErrorStructure error = new ErrorStructure();
+		error.setMessage(ex.getMessage());
+		error.setRootCause("Password is wrong !!");
+		error.setStatusCode(HttpStatus.FORBIDDEN.value());
+
+		return new ResponseEntity<>(error, HttpStatus.FORBIDDEN);
+	}
 
 }
